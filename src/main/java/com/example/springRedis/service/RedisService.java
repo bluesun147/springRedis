@@ -1,5 +1,6 @@
-package com.example.springRedis;
+package com.example.springRedis.service;
 
+import com.example.springRedis.ChatMessage;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

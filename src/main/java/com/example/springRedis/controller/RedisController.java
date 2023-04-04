@@ -1,6 +1,8 @@
-package com.example.springRedis;
+package com.example.springRedis.controller;
 
 
+import com.example.springRedis.ChatMessage;
+import com.example.springRedis.service.RedisService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
