@@ -6,9 +6,12 @@ import com.example.springRedis.service.RedisPubService;
 import com.example.springRedis.service.RedisService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpSession;
 
 @RestController
 @RequiredArgsConstructor
@@ -47,5 +50,15 @@ public class RedisController {
         redisPubService.sendMessage(chatMessage);
 
         return "success";
+    }
+
+    // Session Storage
+    // Redis를 통해 HttpSession을 관리하기
+    // HttpSession 객체를 사용해서 값을 저장해보고 Redis에 실제로 저장되었는지 확인
+    // session의 ID를 return해 동일한 Session인지 확인
+    @GetMapping("api/session")
+    public String getSessionId(HttpSession session) {
+        session.setAttribute("name" , "treesick");
+        return session.getId();
     }
 }
